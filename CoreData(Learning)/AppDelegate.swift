@@ -19,6 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let name = managedObject.name
         print("Name: \(name ?? "no data")")
         
+        CoreDataManager.instance.saveContext()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Customer")
+        
+        do {
+            let results = try CoreDataManager.instance.viewContext.fetch(fetchRequest)
+            for result in results as! [Customer]{
+                print("Fetched name:\(result.name!)")
+            }
+        } catch {
+            print(error)
+        }
+        
 
         //describe Entity
 //        let entityDescription = NSEntityDescription.entity(forEntityName: "Customer", in: viewContext)
