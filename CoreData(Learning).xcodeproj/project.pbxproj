@@ -22,6 +22,7 @@
 		0471C265298EAD8F00734E98 /* RowOfOrder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C25D298EAD8F00734E98 /* RowOfOrder+CoreDataProperties.swift */; };
 		0471C266298EAD8F00734E98 /* Customer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C25E298EAD8F00734E98 /* Customer+CoreDataClass.swift */; };
 		0471C267298EAD8F00734E98 /* Customer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C25F298EAD8F00734E98 /* Customer+CoreDataProperties.swift */; };
+		0471C269298EB83800734E98 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C268298EB83800734E98 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0471C25D298EAD8F00734E98 /* RowOfOrder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RowOfOrder+CoreDataProperties.swift"; path = "../../RowOfOrder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0471C25E298EAD8F00734E98 /* Customer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Customer+CoreDataClass.swift"; path = "../../Customer+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0471C25F298EAD8F00734E98 /* Customer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Customer+CoreDataProperties.swift"; path = "../../Customer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0471C268298EB83800734E98 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				0471C24F298EA9BB00734E98 /* ModelFiles */,
 				0471C228298E8A1000734E98 /* AppDelegate.swift */,
+				0471C268298EB83800734E98 /* CoreDataManager.swift */,
 				0471C22A298E8A1000734E98 /* SceneDelegate.swift */,
 				0471C22C298E8A1000734E98 /* ViewController.swift */,
 				0471C22E298E8A1000734E98 /* Main.storyboard */,
@@ -180,6 +183,7 @@
 				0471C233298E8A1000734E98 /* CoreData_Learning_.xcdatamodeld in Sources */,
 				0471C265298EAD8F00734E98 /* RowOfOrder+CoreDataProperties.swift in Sources */,
 				0471C22D298E8A1000734E98 /* ViewController.swift in Sources */,
+				0471C269298EB83800734E98 /* CoreDataManager.swift in Sources */,
 				0471C267298EAD8F00734E98 /* Customer+CoreDataProperties.swift in Sources */,
 				0471C262298EAD8F00734E98 /* Services+CoreDataClass.swift in Sources */,
 				0471C229298E8A1000734E98 /* AppDelegate.swift in Sources */,
