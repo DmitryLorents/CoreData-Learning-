@@ -14,7 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Customer", in: viewContext)
+        let managedObject = NSManagedObject(entity: entityDescription!, insertInto: viewContext)
+        managedObject.setValue("MDI2B LLC", forKey: "name")
+        let name = managedObject.value(forKey: "name")
+        print("Name: \(name ?? "n/a")")
         return true
     }
 
@@ -33,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
+    lazy var viewContext = persistentContainer.viewContext
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
