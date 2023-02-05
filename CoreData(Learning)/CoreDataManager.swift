@@ -11,6 +11,13 @@ import CoreData
 class CoreDataManager {
     static let instance = CoreDataManager()
     
+    enum EntityNames: String {
+        case order = "Order"
+        case services = "Services"
+        case rowOfOrder =  "RowOfOrder"
+        case customer = "Customer"
+    }
+    
     // MARK: - Core Data stack
     lazy var viewContext = persistentContainer.viewContext
     lazy var persistentContainer: NSPersistentContainer = {
@@ -39,7 +46,12 @@ class CoreDataManager {
         })
         return container
     }()
-
+    
+    //MARK: - CoreData Methods
+    
+    func entityForName(name: EntityNames) -> NSEntityDescription {
+        return NSEntityDescription.entity(forEntityName: name.rawValue, in: self.viewContext)!
+    }
     // MARK: - Core Data Saving support
 
     func saveContext () {
