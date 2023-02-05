@@ -14,24 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let managedObject = Customer()
-        managedObject.name = "OOO AvtoVaz"
-        let name = managedObject.name
-        print("Name: \(name ?? "no data")")
-        
-        CoreDataManager.instance.saveContext()
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Customer")
-        
-        do {
-            let results = try CoreDataManager.instance.viewContext.fetch(fetchRequest)
-            for result in results as! [Customer]{
-                print("Fetched name:\(result.name!)")
-            }
-        } catch {
-            print(error)
-        }
-        
+//        let managedObject = Customer()
+//        managedObject.name = "OOO AvtoVaz"
+//        let name = managedObject.name
+//        print("Name: \(name ?? "no data")")
+//        
+//        CoreDataManager.instance.saveContext()
+//        
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Customer")
+//        
+//        do {
+//            let results = try CoreDataManager.instance.viewContext.fetch(fetchRequest)
+//            for result in results as! [Customer]{
+//                print("Fetched name:\(result.name!)")
+//            }
+//        } catch {
+//            print(error)
+//        }
+//        
 
         //describe Entity
 //        let entityDescription = NSEntityDescription.entity(forEntityName: "Customer", in: viewContext)
