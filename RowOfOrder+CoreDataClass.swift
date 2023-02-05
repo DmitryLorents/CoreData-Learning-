@@ -11,5 +11,8 @@ import CoreData
 
 
 public class RowOfOrder: NSManagedObject {
-
+    convenience init() {
+        let coreDataManager = CoreDataManager.instance
+        self.init(entity: coreDataManager.entityForName(name: .rowOfOrder), insertInto: coreDataManager.viewContext)
+    }
 }

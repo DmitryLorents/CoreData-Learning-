@@ -11,5 +11,8 @@ import CoreData
 
 
 public class Order: NSManagedObject {
-
+    convenience init() {
+        let coreDataManager = CoreDataManager.instance
+        self.init(entity: coreDataManager.entityForName(name: .order), insertInto: coreDataManager.viewContext)
+    }
 }

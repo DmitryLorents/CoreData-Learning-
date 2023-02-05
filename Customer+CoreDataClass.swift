@@ -13,7 +13,6 @@ import CoreData
 public class Customer: NSManagedObject {
     
     convenience init() {
-        
         let coreDataManager = CoreDataManager.instance
         self.init(entity: CoreDataManager.instance.entityForName(name: .customer), insertInto: coreDataManager.viewContext)
     }
