@@ -26,15 +26,24 @@ class CustomersTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if let sections = fetchedResultController.sections {
+            return sections[section].numberOfObjects
+        } else {return 0}
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let customer = fetchedResultController.object(at: indexPath) as! Customer
+        let cell = UITableViewCell()
+        cell.textLabel?.text = customer.name
+        return cell
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let customer = fetchedResultController.object(at: indexPath) as? Customer
         performSegue(withIdentifier: "customersToCustomer", sender: customer)
@@ -58,15 +67,6 @@ class CustomersTableViewController: UITableViewController {
         performSegue(withIdentifier: "customersToCustomer", sender: nil)
     }
     
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
