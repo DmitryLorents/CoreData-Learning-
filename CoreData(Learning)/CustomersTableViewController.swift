@@ -29,7 +29,21 @@ class CustomersTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let customer = fetchedResultController.object(at: indexPath) as? Customer
+        performSegue(withIdentifier: "customersToCustomer", sender: customer)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "customersToCustomer" else {return}
+        let controller = segue.destination as? CustomerViewController
+        controller?.customer = sender as? Customer
+    }
+    
+    @IBAction func addCustomer(_ sender: Any) {
+        performSegue(withIdentifier: "customersToCustomer", sender: nil)
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
