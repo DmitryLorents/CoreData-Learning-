@@ -8,6 +8,107 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Services Table View Controller-->
+        <scene sceneID="UcP-fL-Qp8">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="eJ6-BB-Hz2" customClass="ServicesTableViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="8Fa-Cj-oKv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="eJ6-BB-Hz2" id="3TE-Lq-YSv"/>
+                            <outlet property="delegate" destination="eJ6-BB-Hz2" id="8fb-TX-w3F"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5u0-s7-0pk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WgV-EU-Tif">
+                            <connections>
+                                <action selector="addServiceAction:" destination="eJ6-BB-Hz2" id="6QM-h9-LIc"/>
+                                <segue destination="bwR-bE-DvB" kind="presentation" identifier="ServicesToService" id="312-Pd-5Wn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xb-ge-4KP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1812" y="-285"/>
+        </scene>
+        <!--Service View Controller-->
+        <scene sceneID="LKR-ca-D28">
+            <objects>
+                <viewController id="bwR-bE-DvB" customClass="ServiceViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PaE-kW-k02">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epy-BE-PV9">
+                                <rect key="frame" x="20" y="76" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRc-lO-Pqt">
+                                <rect key="frame" x="78" y="69.5" width="316" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xw8-kl-kCY">
+                                <rect key="frame" x="78" y="111" width="316" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1M-Sg-wI0">
+                                <rect key="frame" x="20" y="117.5" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3an-FU-bnZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Customer" id="jcW-lv-FRk">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="c6O-Lr-J5W">
+                                            <connections>
+                                                <action selector="cancelButtonaction:" destination="bwR-bE-DvB" id="QdC-jM-VvJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="C2D-f8-8SK">
+                                            <connections>
+                                                <action selector="saveButtonAction:" destination="bwR-bE-DvB" id="kvp-Cv-yGb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hb1-yD-3lK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="epy-BE-PV9" firstAttribute="top" secondItem="3an-FU-bnZ" secondAttribute="bottom" constant="20" id="1ge-84-jTc"/>
+                            <constraint firstItem="Xw8-kl-kCY" firstAttribute="trailing" secondItem="BRc-lO-Pqt" secondAttribute="trailing" id="2bK-f1-Pgz"/>
+                            <constraint firstItem="i1M-Sg-wI0" firstAttribute="leading" secondItem="epy-BE-PV9" secondAttribute="leading" id="3pZ-4u-CJz"/>
+                            <constraint firstItem="Xw8-kl-kCY" firstAttribute="top" secondItem="BRc-lO-Pqt" secondAttribute="bottom" constant="7.5" id="EvJ-Me-ORC"/>
+                            <constraint firstItem="BRc-lO-Pqt" firstAttribute="leading" secondItem="epy-BE-PV9" secondAttribute="trailing" constant="8" symbolic="YES" id="MQr-pE-o93"/>
+                            <constraint firstItem="i1M-Sg-wI0" firstAttribute="centerY" secondItem="Xw8-kl-kCY" secondAttribute="centerY" id="OLw-eE-lZ1"/>
+                            <constraint firstItem="BRc-lO-Pqt" firstAttribute="centerY" secondItem="epy-BE-PV9" secondAttribute="centerY" id="OsA-TR-WMe"/>
+                            <constraint firstItem="3an-FU-bnZ" firstAttribute="leading" secondItem="hb1-yD-3lK" secondAttribute="leading" id="R4R-ic-BkJ"/>
+                            <constraint firstItem="epy-BE-PV9" firstAttribute="leading" secondItem="hb1-yD-3lK" secondAttribute="leading" constant="20" id="WPH-81-uTT"/>
+                            <constraint firstItem="Xw8-kl-kCY" firstAttribute="leading" secondItem="BRc-lO-Pqt" secondAttribute="leading" id="gEy-kF-YkN"/>
+                            <constraint firstItem="3an-FU-bnZ" firstAttribute="top" secondItem="PaE-kW-k02" secondAttribute="top" id="jQB-hj-cZR"/>
+                            <constraint firstAttribute="trailing" secondItem="3an-FU-bnZ" secondAttribute="trailing" id="lbg-0i-v4H"/>
+                            <constraint firstItem="hb1-yD-3lK" firstAttribute="trailing" secondItem="BRc-lO-Pqt" secondAttribute="trailing" constant="20" id="u2P-Wj-YB9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoTF" destination="Xw8-kl-kCY" id="3aR-iu-VZg"/>
+                        <outlet property="nameTF" destination="BRc-lO-Pqt" id="ljo-QO-iaM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aM-HO-THF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2628" y="-285"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -45,6 +146,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="eJ6-BB-Hz2" kind="show" identifier="" id="FFd-9d-equ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKS-KY-Lyh">
                                 <rect key="frame" x="139" y="254" width="136" height="40"/>
@@ -120,7 +224,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17n-am-7kW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="47"/>
+            <point key="canvasLocation" x="1812" y="398"/>
         </scene>
         <!--Title-->
         <scene sceneID="bjn-AG-8wd">
@@ -196,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brj-jk-9qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2665" y="47"/>
+            <point key="canvasLocation" x="2588" y="398"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3SR-e4-fzU">
