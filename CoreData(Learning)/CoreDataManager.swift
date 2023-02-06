@@ -8,15 +8,15 @@
 import Foundation
 import CoreData
 
+enum EntityNames: String {
+    case order = "Order"
+    case services = "Services"
+    case rowOfOrder =  "RowOfOrder"
+    case customer = "Customer"
+}
+
 class CoreDataManager {
     static let instance = CoreDataManager()
-    
-    enum EntityNames: String {
-        case order = "Order"
-        case services = "Services"
-        case rowOfOrder =  "RowOfOrder"
-        case customer = "Customer"
-    }
     
     // MARK: - Core Data stack
     lazy var viewContext = persistentContainer.viewContext
@@ -49,12 +49,22 @@ class CoreDataManager {
     
     //MARK: - CoreData Methods
     
-    func entityForName(name: EntityNames) -> NSEntityDescription {
+    public func entityForName(name: EntityNames) -> NSEntityDescription {
         return NSEntityDescription.entity(forEntityName: name.rawValue, in: self.viewContext)!
+    }
+    
+    //FetcheedResultcontroller for entity name
+    
+    public func fetchedResultController(entityName: EntityNames, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName.rawValue)
+        let sortdescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
+        fetchRequest.sortDescriptors = [sortdescriptor]
+        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultController
     }
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    public func saveContext () {
         let context = viewContext
         if context.hasChanges {
             do {
