@@ -14,6 +14,12 @@ class CustomersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchedResultController.delegate = self
+        do {
+            try  fetchedResultController.performFetch()
+        } catch {
+            print(error)
+        }
 
         
     }
@@ -32,6 +38,14 @@ class CustomersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let customer = fetchedResultController.object(at: indexPath) as? Customer
         performSegue(withIdentifier: "customersToCustomer", sender: customer)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let managedObject = fetchedResultController.object(at: indexPath) as!  NSManagedObject
+            CoreDataManager.instance.viewContext.delete(managedObject)
+            CoreDataManager.instance.saveContext()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,4 +113,41 @@ class CustomersTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension CustomersTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                let customer = fetchedResultController.object(at: indexPath) as? Customer
+                let cell = tableView.cellForRow(at: indexPath)
+                cell?.textLabel!.text = customer?.name
+            }
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
 }
