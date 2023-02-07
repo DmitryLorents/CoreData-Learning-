@@ -253,7 +253,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aYJ-bi-y5K">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="aYJ-bi-y5K">
                                 <rect key="frame" x="0.0" y="56" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="t2R-gS-uur"/>
@@ -265,10 +265,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ea-Rx-lER">
-                                <rect key="frame" x="120" y="264" width="254" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ea-Rx-lER">
+                                <rect key="frame" x="120" y="264" width="245" height="34"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9a-N1-hwQ">
                                 <rect key="frame" x="20" y="316.5" width="43" height="21"/>
@@ -292,6 +292,11 @@
                                 <rect key="frame" x="0.0" y="401.5" width="414" height="400.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpN-pm-jNp">
+                                <rect key="frame" x="373" y="265.5" width="33" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="naX-B0-gPM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -300,12 +305,14 @@
                             <constraint firstItem="n1I-xk-MTq" firstAttribute="top" secondItem="Odk-uO-0NJ" secondAttribute="bottom" constant="20" id="9kL-e9-TSv"/>
                             <constraint firstItem="aYJ-bi-y5K" firstAttribute="trailing" secondItem="naX-B0-gPM" secondAttribute="trailing" id="DCw-u3-5HO"/>
                             <constraint firstItem="n1I-xk-MTq" firstAttribute="leading" secondItem="naX-B0-gPM" secondAttribute="leading" id="DM9-lg-fL6"/>
-                            <constraint firstItem="naX-B0-gPM" firstAttribute="trailing" secondItem="0Ea-Rx-lER" secondAttribute="trailing" constant="40" id="FYq-vp-ovG"/>
+                            <constraint firstItem="naX-B0-gPM" firstAttribute="trailing" secondItem="gpN-pm-jNp" secondAttribute="trailing" constant="8" id="FDx-u6-r6m"/>
+                            <constraint firstItem="gpN-pm-jNp" firstAttribute="centerY" secondItem="0Ea-Rx-lER" secondAttribute="centerY" id="FMc-VY-0pi"/>
                             <constraint firstItem="3HR-U6-7sM" firstAttribute="leading" secondItem="0Ea-Rx-lER" secondAttribute="leading" id="L2A-24-nv3"/>
                             <constraint firstItem="aYJ-bi-y5K" firstAttribute="top" secondItem="9ch-iN-jjU" secondAttribute="bottom" id="M5Q-ii-xhD"/>
                             <constraint firstItem="naX-B0-gPM" firstAttribute="trailing" secondItem="n1I-xk-MTq" secondAttribute="trailing" id="MMa-ya-mJ5"/>
                             <constraint firstItem="Odk-uO-0NJ" firstAttribute="top" secondItem="3HR-U6-7sM" secondAttribute="bottom" constant="8" symbolic="YES" id="Msw-mm-EWP"/>
                             <constraint firstItem="naX-B0-gPM" firstAttribute="bottom" secondItem="n1I-xk-MTq" secondAttribute="bottom" constant="40" id="MuG-U2-H4U"/>
+                            <constraint firstItem="gpN-pm-jNp" firstAttribute="leading" secondItem="0Ea-Rx-lER" secondAttribute="trailing" constant="8" id="NdI-O8-SNc"/>
                             <constraint firstItem="9ev-GQ-wbr" firstAttribute="leading" secondItem="u9a-N1-hwQ" secondAttribute="leading" id="OGj-3f-NjM"/>
                             <constraint firstItem="avW-zO-FaH" firstAttribute="leading" secondItem="naX-B0-gPM" secondAttribute="leading" constant="20" id="Otb-aT-blC"/>
                             <constraint firstItem="0Ea-Rx-lER" firstAttribute="top" secondItem="aYJ-bi-y5K" secondAttribute="bottom" constant="8" symbolic="YES" id="RM1-hi-ggd"/>
@@ -321,10 +328,18 @@
                             <constraint firstItem="9ev-GQ-wbr" firstAttribute="centerY" secondItem="Odk-uO-0NJ" secondAttribute="centerY" id="xtC-lF-Rjf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Qs7-mF-y5R"/>
+                    <connections>
+                        <outlet property="customerTF" destination="0Ea-Rx-lER" id="AoJ-CF-Les"/>
+                        <outlet property="datePicker" destination="aYJ-bi-y5K" id="kvo-bJ-3wu"/>
+                        <outlet property="switchMade" destination="3HR-U6-7sM" id="Tf2-Ze-pcz"/>
+                        <outlet property="switchPade" destination="Odk-uO-0NJ" id="Gyt-gN-fSK"/>
+                        <outlet property="tableView" destination="n1I-xk-MTq" id="9lx-dD-JSn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZg-vl-uQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1851" y="1059"/>
+            <point key="canvasLocation" x="1850.7246376811595" y="1058.7053571428571"/>
         </scene>
         <!--Customers-->
         <scene sceneID="kK9-qG-DrV">
