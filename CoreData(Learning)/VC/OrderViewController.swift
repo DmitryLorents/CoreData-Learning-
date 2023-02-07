@@ -8,6 +8,8 @@
 import UIKit
 
 class OrderViewController: UIViewController {
+    
+    var order: Order?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,11 +17,19 @@ class OrderViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func  saveOrder() -> Bool {
+        return false
+    }
+    
     @IBAction func saveButtonAction(_ sender: Any) {
+        if saveOrder() {
+            dismiss(animated: true)
+        }
     }
     
 
     @IBAction func cancelButtonaction(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 }

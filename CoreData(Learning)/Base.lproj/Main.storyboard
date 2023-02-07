@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Services Table View Controller-->
+        <!--Services-->
         <scene sceneID="UcP-fL-Qp8">
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="eJ6-BB-Hz2" customClass="ServicesTableViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,7 +21,7 @@
                             <outlet property="delegate" destination="eJ6-BB-Hz2" id="8fb-TX-w3F"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5u0-s7-0pk">
+                    <navigationItem key="navigationItem" title="Services" id="5u0-s7-0pk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WgV-EU-Tif">
                             <connections>
                                 <action selector="addServiceAction:" destination="eJ6-BB-Hz2" id="6QM-h9-LIc"/>
@@ -215,7 +215,7 @@
                             <outlet property="delegate" destination="zca-hk-YQi" id="f5o-FK-q9W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uSL-66-ezz">
+                    <navigationItem key="navigationItem" title="Orders" id="uSL-66-ezz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="i0K-Kl-Dqn">
                             <connections>
                                 <action selector="addOrderAction:" destination="zca-hk-YQi" id="ZnY-yJ-Tv5"/>
@@ -280,7 +280,7 @@
                             <outlet property="delegate" destination="KHN-jC-w0K" id="Ht5-Gg-emu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="MXt-qV-gyt">
+                    <navigationItem key="navigationItem" title="Customers" id="MXt-qV-gyt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PMw-LF-FcA">
                             <connections>
                                 <action selector="addCustomer:" destination="KHN-jC-w0K" id="lwI-w0-4ej"/>
