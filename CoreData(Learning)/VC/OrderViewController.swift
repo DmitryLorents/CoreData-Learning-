@@ -31,8 +31,19 @@ class OrderViewController: UIViewController {
             switchPade.isOn = order.paid
             customerTF.text = order.customer?.name
         }
-
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "orderToCustomers" {
+            let vc = segue.destination as! CustomersTableViewController
+            vc.didSelect = { [unowned self] customer in
+                if let customer = customer {
+                    self.order?.customer = customer
+                    self.customerTF.text = customer.name
+                }
+            }
+        }
     }
     
     func  saveOrder() -> Bool {
@@ -52,7 +63,7 @@ class OrderViewController: UIViewController {
         }
     }
     
-
+    
     @IBAction func cancelButtonAction(_ sender: Any) {
         dismiss(animated: true)
     }
