@@ -126,14 +126,10 @@ extension OrdersTableViewController: NSFetchedResultsControllerDelegate {
         tableView.beginUpdates()
     }
     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            if let indexPath = indexPath {
+            if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .automatic)
             }
         case .delete:
@@ -156,6 +152,10 @@ extension OrdersTableViewController: NSFetchedResultsControllerDelegate {
         default: break
         }
     
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
     
 }
