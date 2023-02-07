@@ -59,7 +59,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1M-Sg-wI0">
-                                <rect key="frame" x="20" y="117.5" width="34" height="21"/>
+                                <rect key="frame" x="20" y="117.5" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3an-FU-bnZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem title="Customer" id="jcW-lv-FRk">
+                                    <navigationItem title="Service" id="jcW-lv-FRk">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="c6O-Lr-J5W">
                                             <connections>
                                                 <action selector="cancelButtonaction:" destination="bwR-bE-DvB" id="QdC-jM-VvJ"/>
@@ -87,6 +87,7 @@
                         <constraints>
                             <constraint firstItem="epy-BE-PV9" firstAttribute="top" secondItem="3an-FU-bnZ" secondAttribute="bottom" constant="20" id="1ge-84-jTc"/>
                             <constraint firstItem="Xw8-kl-kCY" firstAttribute="trailing" secondItem="BRc-lO-Pqt" secondAttribute="trailing" id="2bK-f1-Pgz"/>
+                            <constraint firstItem="i1M-Sg-wI0" firstAttribute="trailing" secondItem="epy-BE-PV9" secondAttribute="trailing" id="35C-8v-DR7"/>
                             <constraint firstItem="i1M-Sg-wI0" firstAttribute="leading" secondItem="epy-BE-PV9" secondAttribute="leading" id="3pZ-4u-CJz"/>
                             <constraint firstItem="Xw8-kl-kCY" firstAttribute="top" secondItem="BRc-lO-Pqt" secondAttribute="bottom" constant="7.5" id="EvJ-Me-ORC"/>
                             <constraint firstItem="BRc-lO-Pqt" firstAttribute="leading" secondItem="epy-BE-PV9" secondAttribute="trailing" constant="8" symbolic="YES" id="MQr-pE-o93"/>
@@ -268,7 +269,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag8-EW-NyV">
-                                <rect key="frame" x="20" y="117.5" width="34" height="21"/>
+                                <rect key="frame" x="20" y="117.5" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -284,6 +285,7 @@
                             <constraint firstItem="8NW-A6-CLd" firstAttribute="leading" secondItem="Zso-t6-ycQ" secondAttribute="leading" constant="20" id="GRy-8H-b7m"/>
                             <constraint firstItem="ag8-EW-NyV" firstAttribute="centerY" secondItem="31B-Wp-fjs" secondAttribute="centerY" id="JsL-cj-OjZ"/>
                             <constraint firstItem="Zso-t6-ycQ" firstAttribute="trailing" secondItem="LI9-6x-cfZ" secondAttribute="trailing" constant="20" id="Sk3-WC-hcU"/>
+                            <constraint firstItem="ag8-EW-NyV" firstAttribute="trailing" secondItem="8NW-A6-CLd" secondAttribute="trailing" id="SqG-QD-Igf"/>
                             <constraint firstItem="ag8-EW-NyV" firstAttribute="leading" secondItem="8NW-A6-CLd" secondAttribute="leading" id="cIv-sz-SJh"/>
                             <constraint firstItem="8NW-A6-CLd" firstAttribute="top" secondItem="hD6-gh-A9i" secondAttribute="bottom" constant="20" id="cX0-Jr-Mdy"/>
                             <constraint firstItem="31B-Wp-fjs" firstAttribute="leading" secondItem="LI9-6x-cfZ" secondAttribute="leading" id="cpP-0F-lPX"/>

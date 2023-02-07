@@ -14,6 +14,7 @@ class ServicesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchedResulltController.delegate = self
         
         do {
             try fetchedResulltController.performFetch()
@@ -56,6 +57,27 @@ class ServicesTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let service = fetchedResulltController.object(at: indexPath) as? Services
+        performSegue(withIdentifier: "ServicesToService", sender: service)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ServicesToService" else {return}
+        let controller = segue.destination as! ServiceViewController
+        controller.service = sender as? Services
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let managedObject = fetchedResulltController.object(at: indexPath) as! NSManagedObject
+            CoreDataManager.instance.viewContext.delete(managedObject)
+            CoreDataManager.instance.saveContext()
+        }
+    }
+    
   
 
     /*
@@ -103,4 +125,43 @@ class ServicesTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension ServicesTableViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                let service = fetchedResulltController.object(at: indexPath) as? Services
+                let cell = tableView.cellForRow(at: indexPath)
+                    cell?.textLabel?.text = service?.name
+                    cell?.detailTextLabel?.text = service?.info
+            }
+        default: break
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 }

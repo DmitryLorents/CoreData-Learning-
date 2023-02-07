@@ -116,6 +116,7 @@ class CustomersTableViewController: UITableViewController {
 }
 
 extension CustomersTableViewController: NSFetchedResultsControllerDelegate {
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -143,6 +144,7 @@ extension CustomersTableViewController: NSFetchedResultsControllerDelegate {
                 let cell = tableView.cellForRow(at: indexPath)
                 cell?.textLabel!.text = customer?.name
             }
+        default: break
         }
     }
     
