@@ -164,6 +164,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="zca-hk-YQi" kind="show" id="Rcf-VY-nKn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-Ee-sKq">
                                 <rect key="frame" x="135" y="302" width="144" height="40"/>
@@ -199,6 +202,71 @@
             </objects>
             <point key="canvasLocation" x="1034.7826086956522" y="46.875"/>
         </scene>
+        <!--Orders-->
+        <scene sceneID="rmG-Ca-1Uc">
+            <objects>
+                <tableViewController title="Orders" modalPresentationStyle="fullScreen" id="zca-hk-YQi" customClass="OrdersTableViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="fJk-w5-EvZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="zca-hk-YQi" id="V5V-7o-b8m"/>
+                            <outlet property="delegate" destination="zca-hk-YQi" id="f5o-FK-q9W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uSL-66-ezz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="i0K-Kl-Dqn">
+                            <connections>
+                                <action selector="addOrderAction:" destination="zca-hk-YQi" id="ZnY-yJ-Tv5"/>
+                                <segue destination="KhF-Pa-cAh" kind="presentation" identifier="OrdersToOrder" id="vLY-cw-6fu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lq0-kR-9oS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="1060"/>
+        </scene>
+        <!--Order-->
+        <scene sceneID="SLS-gT-1q1">
+            <objects>
+                <viewController title="Order" id="KhF-Pa-cAh" customClass="OrderViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UpY-mv-zpk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ch-iN-jjU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Order" id="gWQ-9r-oh4">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gmp-Pd-BMI">
+                                            <connections>
+                                                <action selector="cancelButtonaction:" destination="KhF-Pa-cAh" id="YMi-Cd-KOV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="ioK-XL-uB7">
+                                            <connections>
+                                                <action selector="saveButtonAction:" destination="KhF-Pa-cAh" id="fPy-0F-1Jg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="naX-B0-gPM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9ch-iN-jjU" firstAttribute="leading" secondItem="UpY-mv-zpk" secondAttribute="leading" id="1Cg-5N-Qyj"/>
+                            <constraint firstItem="9ch-iN-jjU" firstAttribute="top" secondItem="UpY-mv-zpk" secondAttribute="top" id="iy2-Rj-wuN"/>
+                            <constraint firstAttribute="trailing" secondItem="9ch-iN-jjU" secondAttribute="trailing" id="k4g-f1-jmD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZg-vl-uQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1851" y="1059"/>
+        </scene>
         <!--Customers-->
         <scene sceneID="kK9-qG-DrV">
             <objects>
@@ -225,7 +293,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17n-am-7kW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="398"/>
+            <point key="canvasLocation" x="1852" y="354"/>
         </scene>
         <!--Title-->
         <scene sceneID="bjn-AG-8wd">
@@ -302,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brj-jk-9qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2588" y="398"/>
+            <point key="canvasLocation" x="2628" y="354"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3SR-e4-fzU">
