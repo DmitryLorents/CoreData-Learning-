@@ -38,4 +38,9 @@ class OrderViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func customerChoiceaction(_ sender: Any) {
+        performSegue(withIdentifier: "orderToCustomers", sender: nil)
+    }
+    
+    
 }

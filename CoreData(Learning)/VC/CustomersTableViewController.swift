@@ -9,6 +9,9 @@ import UIKit
 import CoreData
 
 class CustomersTableViewController: UITableViewController {
+    
+    typealias Select = (Customer?) -> ()
+    var didSelect: Select?
 
     var  fetchedResultController = CoreDataManager.instance.fetchedResultController(entityName: EntityNames.customer, keyForSort: "name")
     
@@ -46,7 +49,13 @@ class CustomersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let customer = fetchedResultController.object(at: indexPath) as? Customer
-        performSegue(withIdentifier: "customersToCustomer", sender: customer)
+        if let dSelect = self.didSelect {
+            dSelect(customer)
+            dismiss(animated: true)
+        } else {
+            performSegue(withIdentifier: "customersToCustomer", sender: customer)
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

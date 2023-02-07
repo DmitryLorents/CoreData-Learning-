@@ -296,6 +296,10 @@
                                 <rect key="frame" x="373" y="265.5" width="33" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                                <connections>
+                                    <action selector="customerChoiceaction:" destination="KhF-Pa-cAh" eventType="touchUpInside" id="D5F-7a-nH0"/>
+                                    <segue destination="KHN-jC-w0K" kind="presentation" identifier="orderToCustomers" id="xcP-fV-bc9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="naX-B0-gPM"/>
@@ -465,6 +469,9 @@
             <point key="canvasLocation" x="124.6376811594203" y="46.875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xcP-fV-bc9"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
