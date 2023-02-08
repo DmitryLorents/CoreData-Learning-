@@ -25,7 +25,7 @@ class OrderViewController: UIViewController {
         //creating object
         if order == nil {
             order = Order()
-            order?.date = Date()
+            order!.date = Date()
         }
         
         if let order = order {
@@ -55,6 +55,10 @@ class OrderViewController: UIViewController {
                 }
             }
         }
+        if segue.identifier == "orderToRowOfOrder" {
+            let vc = segue.destination as! RowOfOrderViewController
+            vc.rowOfOrder = sender as? RowOfOrder
+        }
     }
     
     func  saveOrder() -> Bool {
@@ -79,7 +83,7 @@ class OrderViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func customerChoiceaction(_ sender: Any) {
+    @IBAction func customerChoiceAction(_ sender: Any) {
         performSegue(withIdentifier: "orderToCustomers", sender: nil)
     }
     
@@ -94,6 +98,77 @@ class OrderViewController: UIViewController {
     
     
 }
-extension OrderViewController: NSFetchedResultsControllerDelegate  {
+extension OrderViewController: NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource  {
     
+    //MARK: - TableView DataSoudce
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = table?.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let rowOfOrder = table?.object(at: indexPath) as! RowOfOrder
+        let cell = UITableViewCell()
+        let nameOfService = (rowOfOrder.service == nil) ? "--Unknown--" : (rowOfOrder.service?.name)
+        cell.textLabel?.text = nameOfService! + " - " + String(rowOfOrder.sum)
+        return cell
+    }
+    
+    //MARK: - TableVieew Delegate
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let managedObject = table?.object(at: indexPath) as! NSManagedObject
+            CoreDataManager.instance.viewContext.delete(managedObject)
+            CoreDataManager.instance.saveContext()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rowOfOrder = table?.object(at: indexPath) as! RowOfOrder
+        performSegue(withIdentifier: "orderToRowOfOrder", sender: rowOfOrder)
+    }
+    
+    //MARK: - FetchedResultControlleerDelegate
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                let rowOfOrder = table?.object(at: indexPath) as! RowOfOrder
+                let cell = tableView.cellForRow(at: indexPath)!
+                let nameOfService = (rowOfOrder.service == nil) ? "--Unknown--" : (rowOfOrder.service?.name)
+                cell.textLabel?.text = nameOfService! + " - " + String(rowOfOrder.sum)
+                
+            }
+        default: break
+        }
+    }
 }
