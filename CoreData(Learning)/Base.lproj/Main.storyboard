@@ -297,7 +297,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
                                 <connections>
-                                    <action selector="customerChoiceaction:" destination="KhF-Pa-cAh" eventType="touchUpInside" id="D5F-7a-nH0"/>
+                                    <action selector="customerChoiceAction:" destination="KhF-Pa-cAh" eventType="touchUpInside" id="YAQ-wW-svi"/>
                                     <segue destination="KHN-jC-w0K" kind="presentation" identifier="orderToCustomers" id="xcP-fV-bc9"/>
                                 </connections>
                             </button>
