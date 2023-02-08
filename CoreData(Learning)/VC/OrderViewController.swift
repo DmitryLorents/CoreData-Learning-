@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class OrderViewController: UIViewController {
     
     var order: Order?
+    var table: NSFetchedResultsController<NSFetchRequestResult>?
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var customerTF: UITextField!
     @IBOutlet weak var switchMade: UISwitch!
@@ -30,6 +33,14 @@ class OrderViewController: UIViewController {
             switchMade.isOn = order.made
             switchPade.isOn = order.paid
             customerTF.text = order.customer?.name
+            table = Order.getRowsOfOrder(order: order)
+            table!.delegate = self
+            do {
+                
+                try table!.performFetch()
+            } catch {
+                print(error)
+            }
         }
         
     }
@@ -72,5 +83,8 @@ class OrderViewController: UIViewController {
         performSegue(withIdentifier: "orderToCustomers", sender: nil)
     }
     
+    
+}
+extension OrderViewController: NSFetchedResultsControllerDelegate  {
     
 }
