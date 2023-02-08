@@ -312,6 +312,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add row"/>
                                 <connections>
+                                    <action selector="addRowAction:" destination="KhF-Pa-cAh" eventType="touchUpInside" id="eeh-37-OXK"/>
                                     <segue destination="MhH-Ft-hEz" kind="show" identifier="orderToRowOfOrder" id="nVo-al-Md4"/>
                                 </connections>
                             </button>
@@ -411,7 +412,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xld-7C-VeG">
                                 <rect key="frame" x="102" y="150" width="272" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjC-N2-iM4">
                                 <rect key="frame" x="381" y="109.5" width="33" height="31"/>

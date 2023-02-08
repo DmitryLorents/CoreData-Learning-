@@ -84,6 +84,15 @@ class OrderViewController: UIViewController {
     }
     
     
+    @IBAction func addRowAction(_ sender: Any) {
+        if let order = order {
+            let newRowOfOrder = RowOfOrder()
+            newRowOfOrder.order = order
+            performSegue(withIdentifier: "orderToRowOfOrder", sender: newRowOfOrder)
+        }
+    }
+    
+    
 }
 extension OrderViewController: NSFetchedResultsControllerDelegate  {
     
