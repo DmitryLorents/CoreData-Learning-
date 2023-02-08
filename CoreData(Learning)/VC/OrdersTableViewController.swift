@@ -60,7 +60,7 @@ class OrdersTableViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy"
         let nameOfCustomer = (order.customer == nil) ?  "--Unknown--" : (order.customer?.name)
-        cell.textLabel?.text = formatter.string(from: order.date ?? Date()) + "\t" +  nameOfCustomer!
+        cell.textLabel?.text = formatter.string(from: order.date ?? Date()) + "\t\t" +  nameOfCustomer!
     }
      
     /*
