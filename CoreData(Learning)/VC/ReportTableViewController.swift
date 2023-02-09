@@ -19,7 +19,7 @@ class ReportTableViewController: UITableViewController {
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
         
         //Predicate
-        let predicate = NSPredicate(format: "%K == %@", "made",  true)
+        let predicate = NSPredicate(format: "%K == %@ AND %K == %@", "made",  true, "paid")
         fetchRequest.predicate = predicate
         
         return fetchRequest
