@@ -25,9 +25,16 @@ class ReportTableViewController: UITableViewController {
         return fetchRequest
     }()
     
+    var report: [Order]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        do {
+            report = try CoreDataManager.instance.viewContext.fetch(fetchRequest) as? [Order]
+        } catch {
+            print(error)
+        }
         
     }
     
@@ -35,23 +42,32 @@ class ReportTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if let report = report {
+            return report.count
+        } else {return 0}
     }
     
-    /*
+   
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     let cell = UITableViewCell()
+         
+         if let report = report {
+             let order = report[indexPath.row]
+             let formatter = DateFormatter()
+             formatter.dateFormat = "MMM d, YYYY"
+             let nameOfCustomer = (order.customer == nil) ? "--Unknown--" : (order.customer?.name)
+             cell.textLabel?.text = formatter.string(from: order.date ?? Date()) + "\t\t" + nameOfCustomer!
+         }
      
-     // Configure the cell...
+    
      
      return cell
      }
-     */
+    
     
     /*
      // Override to support conditional editing of the table view.
