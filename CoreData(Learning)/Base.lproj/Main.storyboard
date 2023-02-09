@@ -32,7 +32,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xb-ge-4KP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="-242"/>
+            <point key="canvasLocation" x="928" y="485"/>
         </scene>
         <!--Service View Controller-->
         <scene sceneID="LKR-ca-D28">
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aM-HO-THF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="532"/>
+            <point key="canvasLocation" x="1857" y="485"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -181,6 +181,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="CjU-zX-p8h" kind="show" id="4Aj-bE-197"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -226,7 +229,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lq0-kR-9oS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="-242"/>
+            <point key="canvasLocation" x="1745" y="-997"/>
         </scene>
         <!--Order-->
         <scene sceneID="SLS-gT-1q1">
@@ -362,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZg-vl-uQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782.608695652174" y="532.36607142857144"/>
+            <point key="canvasLocation" x="2548" y="-997"/>
         </scene>
         <!--RowOfOrder-->
         <scene sceneID="BBo-oY-Wcq">
@@ -456,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7r-X5-rr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2581" y="533"/>
+            <point key="canvasLocation" x="3523" y="-242"/>
         </scene>
         <!--Customers-->
         <scene sceneID="kK9-qG-DrV">
@@ -484,7 +487,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17n-am-7kW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-242"/>
+            <point key="canvasLocation" x="1745" y="-219"/>
         </scene>
         <!--Title-->
         <scene sceneID="bjn-AG-8wd">
@@ -561,22 +564,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brj-jk-9qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="532"/>
+            <point key="canvasLocation" x="2623" y="-220"/>
         </scene>
-        <!--Report Table View Controller-->
+        <!--Order Report-->
         <scene sceneID="aDK-vq-fqO">
             <objects>
-                <viewController id="CjU-zX-p8h" customClass="ReportTableViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Order Report" id="CjU-zX-p8h" customClass="ReportTableViewController" customModule="CoreData_Learning_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Ph-EF-rrM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="JaM-xU-pxX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Nxm-3c-tX6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGa-aZ-T31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="1256"/>
+            <point key="canvasLocation" x="106" y="-242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3SR-e4-fzU">
