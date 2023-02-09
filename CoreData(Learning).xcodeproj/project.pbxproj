@@ -14,6 +14,7 @@
 		042CB8C029920E5600418B50 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB8BF29920E5600418B50 /* OrderViewController.swift */; };
 		042CB8C229920E7000418B50 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB8C129920E7000418B50 /* OrdersTableViewController.swift */; };
 		042CB8C42993B7C100418B50 /* RowOfOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB8C32993B7C100418B50 /* RowOfOrderViewController.swift */; };
+		042CB8C62995349D00418B50 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CB8C52995349D00418B50 /* ReportTableViewController.swift */; };
 		0471C229298E8A1000734E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C228298E8A1000734E98 /* AppDelegate.swift */; };
 		0471C22B298E8A1000734E98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C22A298E8A1000734E98 /* SceneDelegate.swift */; };
 		0471C22D298E8A1000734E98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471C22C298E8A1000734E98 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 		042CB8BF29920E5600418B50 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		042CB8C129920E7000418B50 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		042CB8C32993B7C100418B50 /* RowOfOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowOfOrderViewController.swift; sourceTree = "<group>"; };
+		042CB8C52995349D00418B50 /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		0471C225298E8A1000734E98 /* CoreData(Learning).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData(Learning).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0471C228298E8A1000734E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0471C22A298E8A1000734E98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				042CB8C129920E7000418B50 /* OrdersTableViewController.swift */,
 				042CB8BF29920E5600418B50 /* OrderViewController.swift */,
 				042CB8C32993B7C100418B50 /* RowOfOrderViewController.swift */,
+				042CB8C52995349D00418B50 /* ReportTableViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				042CB8B72990218600418B50 /* CustomersTableViewController.swift in Sources */,
 				0471C263298EAD8F00734E98 /* Services+CoreDataProperties.swift in Sources */,
 				0471C261298EAD8F00734E98 /* Order+CoreDataProperties.swift in Sources */,
+				042CB8C62995349D00418B50 /* ReportTableViewController.swift in Sources */,
 				042CB8C229920E7000418B50 /* OrdersTableViewController.swift in Sources */,
 				0471C264298EAD8F00734E98 /* RowOfOrder+CoreDataClass.swift in Sources */,
 				042CB8BB29914D3F00418B50 /* ServicesTableViewController.swift in Sources */,
